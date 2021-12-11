@@ -3,10 +3,13 @@ def main():
         depths = file.read()
         depths = depths.split("\n")
 
-        count = 0
+        count = 1
 
         for i, depth in enumerate(depths):
-            pass
+            if depth > depths[i-1]:
+                count += 1
+
+        print(count)
 
 
 if __name__ == "__main__":
