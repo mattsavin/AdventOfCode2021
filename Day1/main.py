@@ -11,7 +11,7 @@ def part_one():
         if depth > depths[i-1]:
             count += 1
 
-    print("Part 1:", count)
+    return count
 
 
 def part_two():
@@ -28,9 +28,9 @@ def part_two():
                 count += 1
             old_depths = sum_depths
 
-    print("Part 2:", count)
+    return count
 
 
 if __name__ == "__main__":
-    part_one()
-    part_two()
+    print("Part 1:", part_one())
+    print("Part 2:", part_two())
