@@ -36,7 +36,15 @@ def part_one():
 
 
 def part_two():
-    return 0
+    diagnostic_data = get_diagnostics()
+
+    for i in range(0, 12):
+        most_common = int(Counter(n[i] for n in diagnostic_data).most_common()[0][0])
+        for number in diagnostic_data:
+            if int(number[i]) != most_common:
+                diagnostic_data.remove(number)
+
+    return diagnostic_data
 
 
 if __name__ == "__main__":
