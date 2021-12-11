@@ -4,8 +4,8 @@ def get_depths():
 
 
 def part_one():
-    depths = get_depths()
-    count = 0
+    depths: list = get_depths()
+    count: int = 0
 
     for i, depth in enumerate(depths):
         if depth > depths[i-1]:
@@ -15,12 +15,20 @@ def part_one():
 
 
 def part_two():
-    depths = get_depths()
+    depths: list = get_depths()
+
+    old_depths: int = 5000  # This is to avoid the first sum_depths counting as higher when
+    # in reality there's no depth before it.
+    count: int = 0
 
     for i, depth in enumerate(depths):
-        if 1 < i < 10:
+        if 1 < i:
             sum_depths = depth + depths[i-1] + depths[i-2]
-            print(sum_depths)
+            if sum_depths > old_depths:
+                count += 1
+            old_depths = sum_depths
+
+    print("Part 2:", count)
 
 
 if __name__ == "__main__":
